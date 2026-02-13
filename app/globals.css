@@ -1,0 +1,68 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #fff9f9;
+  --foreground: #4a1d1d;
+  --primary: #ff4d6d;
+  --secondary: #ffccd5;
+  --accent: #c9184a;
+  --soft-pink: #ffb3c1;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    /* We keep it light and romantic as requested, but we can soften it slightly */
+    --background: #fff9f9;
+    --foreground: #4a1d1d;
+  }
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: 'Inter', sans-serif;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-playfair), serif;
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 179, 193, 0.3);
+  box-shadow: 0 8px 32px 0 rgba(255, 77, 109, 0.1);
+}
+
+.heart-beat {
+  animation: heart-beat 1.5s infinite;
+}
+
+@keyframes heart-beat {
+  0% { transform: scale(1); }
+  14% { transform: scale(1.1); }
+  28% { transform: scale(1); }
+  42% { transform: scale(1.1); }
+  70% { transform: scale(1); }
+}
+
+.masonry-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.75rem;
+}
+
+@media (min-width: 768px) {
+  .masonry-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .masonry-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
